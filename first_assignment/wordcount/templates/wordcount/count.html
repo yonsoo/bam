@@ -1,0 +1,47 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<style>
+    .card { 
+        position: relative;
+    }
+                
+    .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<div class="center">
+<div class="card text-white bg-dark mb-3" style="max-width: 28rem;">
+    <div class="card-header">
+        <a href="{% url 'home' %}"> 다시하기 </a>
+    <div class="card-body">
+        <h4 class="card-title text-center">당신이 입력한 텍스트는<br>{{ total }} 단어로 구성되어 있습니다.</h4>
+        <p class="card-text text-center">
+                <br>
+                <h5>입력한 텍스트: </h5>
+                <!-- 입력받은 전체 텍스트 -->
+                {{ fulltext }}
+
+                <br><br>
+                <h5>단어 카운트:</h5>
+                <!-- '단어' - '단어나온 횟수' -->
+                {% for word, countTotal in dictionary %}
+                {{ word }} - {{ countTotal }}
+                <br>
+                {% endfor %}
+        </p>
+    </div>
+</div>
+</div>
